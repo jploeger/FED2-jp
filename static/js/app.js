@@ -76,7 +76,7 @@ var APP = APP || {};
 
 		// Naar andere section gaan binnenin dezelfde pagina en URL veranderen
 		change: function () {
-			// Opvragen op welke pagina we zijn (wat er in isgevuld na de slash)
+			// Opvragen op welke pagina we zijn (wat er in is gevuld na de slash)
 			// window is browser document
 			// location is URL
 			// hash is # (numeriek teken)
