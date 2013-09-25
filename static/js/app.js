@@ -6,7 +6,7 @@ var APP = APP || {};
 (function () {
 	// Data objecten
 	// Dit is een object binnen de namespace APP
-	// Schedule is een JSON (javascript object notation) object (format, conventies hoe het eruit moet zien)
+	// Game is een JSON (javascript object notation) object (format, conventies hoe het eruit moet zien)
 	APP.game = {
 		// Aanroepwaardes
 		title:'Game',
@@ -98,7 +98,7 @@ var APP = APP || {};
 					// Als je op /schedule komt, render pagina
 					APP.page.render('schedule');
 				},
-				// Wildcard > Als niks laad, laat opzet van schedule pagina zien
+				// Wildcard > Als niks laad, laat opzet van game pagina (home) zien
 				'*': function() {
 					APP.page.render('game');
 				}
@@ -142,11 +142,11 @@ var APP = APP || {};
 
 	// Pages
 	APP.page = {
-		// var route = "schedule"
+		// var route = "game"
 		render: function (route) {
 			// http://javascriptweblog.wordpress.com/2010/04/19/how-evil-is-eval/
 			// The eval() function evaluates or executes an argument (eval haalt objecten op)
-			// De variabele data is gelijk aan App.schedule
+			// De variabele data is gelijk aan APP.game
 			var data = eval('APP.'+route);
 
 			// Transparency en qwery libraries
