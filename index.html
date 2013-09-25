@@ -2,43 +2,62 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 	<title>Web Toernooi</title>
 	<link href="static/css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<header>
-		<img src="media/images/skeleton.png" alt="Web App Skeleton" data-source="http://www.gettyicons.com/free-icon/119/halloween-icon-set/free-skull-icon-png/">
-		<h1>Web toernooi</h1>
 		<nav>
 			<ul>
-				<li><a href="#/schedule" data>Schedule</a></li>
+				<li><a href="#/game" data>Game</a></li>
 				<li><a href="#/ranking">Ranking</a></li>
-				<li><a href="#/game">Game</a></li>
-		    </ul>
+				<li><a href="#/schedule">Schedule</a></li>
+			</ul>
 		</nav>
 	</header>
-	
-	<article id="content" class="col">
-		<section data-route="schedule" class="active">
+	<article id="content">
+		<section data-route="game" class="active">
 			<h1 data-bind="title"></h1>
 			<p data-bind="description"></p>
-			 <section data-bind="items">
-			    <section>
-			      <h1 data-bind="title"></h1>
-			      <p data-bind="description"></p>
-			    </section>
-			  </section>
+			<table data-bind="items">
+				<tr>
+					<td data-bind="score"></td>
+					<td data-bind="team1"></td>
+					<td data-bind="team1Score"></td>
+					<td data-bind="team2"></td>
+					<td data-bind="team2Score"></td>
+				</tr>
+			</table>
 		</section>
 
 		<section data-route="ranking">
 			<h1 data-bind="title"></h1>
 			<p data-bind="description"></p>
+			<table data-bind="items">
+				<tr>
+					<td data-bind="team"></td>
+					<td data-bind="Win"></td>
+					<td data-bind="Lost"></td>
+					<td data-bind="Sw"></td>
+					<td data-bind="Sl"></td>
+					<td data-bind="Pw"></td>
+					<td data-bind="Pl"></td>
+				</tr>
+			</table>
 		</section>
 
-		<section data-route="game">
+		<section data-route="schedule">
 			<h1 data-bind="title"></h1>
 			<p data-bind="description"></p>
+			<table data-bind="items">
+				<tr>
+					<td data-bind="date"></td>
+					<td data-bind="team1"></td>
+					<td data-bind="team1Score"></td>
+					<td data-bind="team2"></td>
+					<td data-bind="team2Score"></td>
+				</tr>
+			</table>
 		</section>
 	</article>
 
