@@ -1,74 +1,128 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Web Toernooi</title>
-	<link href="static/css/style.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-	<header>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Windmill Windup Amsterdam 2013</title>
+		<link rel="stylesheet" href="styles/reset.css">
+		<link rel="stylesheet" href="styles/app.css">
+	</head>
+	<body>
+
+		<header>
+			Windmill Windup 2013
+		</header>
+
 		<nav>
 			<ul>
-				<li><a href="#/game" data>Game</a></li>
-				<li><a href="#/ranking">Ranking</a></li>
 				<li><a href="#/schedule">Schedule</a></li>
+				<li><a href="#/teams">Teams</a></li>
+				<li><a href="#/results">Results</a></li>
 			</ul>
 		</nav>
-	</header>
-	<article id="content">
-		<section data-route="game" class="active">
-			<h1 data-bind="title"></h1>
-			<p data-bind="description"></p>
-			<table data-bind="items">
-				<tr>
-					<td data-bind="score"></td>
-					<td data-bind="team1"></td>
-					<td data-bind="team1Score"></td>
-					<td data-bind="team2"></td>
-					<td data-bind="team2Score"></td>
-				</tr>
-			</table>
-		</section>
 
-		<section data-route="ranking">
-			<h1 data-bind="title"></h1>
-			<p data-bind="description"></p>
-			<table data-bind="items">
-				<tr>
-					<td data-bind="team"></td>
-					<td data-bind="Win"></td>
-					<td data-bind="Lost"></td>
-					<td data-bind="Sw"></td>
-					<td data-bind="Sl"></td>
-					<td data-bind="Pw"></td>
-					<td data-bind="Pl"></td>
-				</tr>
-			</table>
-		</section>
+		<div id="content">
+		</div>
 
-		<section data-route="schedule">
-			<h1 data-bind="title"></h1>
-			<p data-bind="description"></p>
-			<table data-bind="items">
-				<tr>
-					<td data-bind="date"></td>
-					<td data-bind="team1"></td>
-					<td data-bind="team1Score"></td>
-					<td data-bind="team2"></td>
-					<td data-bind="team2Score"></td>
-				</tr>
-			</table>
-		</section>
-	</article>
+		<script id="page-general" type="text/x-handlebars-template">
+			<section>
+				<article>
+					<h1>{{title}}</h1>
+				</article>
+				<article>
+					{{body}}
+				</article>
+			</section>
+		</script>
 
-	<!-- Libs -->
-	<script src="static/js/lib/routie.min.js"></script>
-	<script src="static/js/lib/ready.min.js" type="text/javascript"></script>
-	<script src="static/js/lib/qwery.min.js" type="text/javascript"></script>
-	<script src="static/js/lib/transparancy.min.js" type="text/javascript"></script>
+		<script id="page-teams" type="text/x-handlebars-template">
+			<section>
+				<article>
+					<h1>Poule A</h1>
+				</article>
+				<article>
+					<ul>
+						{{#each teams}}
+							<li>
+								{{name}}
+								<ul>
+									{{#each players}}
+										<li>
+											{{this}}
+										</li>
+									{{/each}}
+								</ul>
+							</li>
+						{{/each}}
+					</ul>
+				</article>
+				<article>
+					<h1>Poule B</h1>
+				</article>
+				<article>
+					<h1>Poule C</h1>
+				</article>
+			</section>
+		</script>
 
-	<!-- Application -->
-	<script src="static/js/app.js"></script>
-	
-</body>
+		<script id="page-results" type="text/x-handlebars-template">
+			<section>
+				<article>
+					<h1>Results</h1>
+				</article>
+				<article>
+					<ul>
+						{{#each results}}
+							<li>
+								{{name}}
+								<ul>
+									{{#each score}}
+										<li>
+											{{this}}
+										</li>
+									{{/each}}
+								</ul>
+							</li>
+						{{/each}}
+					</ul>
+				</article>
+			</section>
+		</script>
+
+		<!-- <script id="page-films" type="text/x-handlebars-template">
+			<section>
+				<h1>Films</h1>
+				{{#each films}}
+					<article>
+						<h2>{{title}}</h2>
+						{{#if reviews}}
+							<h3>{{averageScore}}</h3>
+						{{else}}
+						<h3>This film hasn't been reviewed yet</h3>
+						{{/if}}
+						<p class="description">
+						{{description}}
+						</p>
+						<p class="release-date">
+						{{release_date}}
+						</p>
+						<img src="{{cover}}" alt="Cover image">
+					</article>
+				{{/each}}
+			</section>
+		</script> -->
+
+		<!-- include vendors -->
+		<script src="scripts/vendor/routie.js"></script>
+		<script src="scripts/vendor/handlebars.js"></script>
+		<script src="scripts/vendor/microajax.minified.js"></script>
+
+		<!-- include scripts -->
+		<script src="scripts/app.js"></script>
+		<script src="scripts/template.js"></script>
+		<script src="scripts/teamscontroller.js"></script>
+		<script src="scripts/resultscontroller.js"></script>
+		<script src="scripts/filmscontroller.js"></script>
+		
+	</body>
 </html>
